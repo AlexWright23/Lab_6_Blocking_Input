@@ -4,34 +4,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double efficiency = 0;
-        double pricePerGallon = 0;
-        double gallons = 0;
+        double height = 0;
+        double width = 0;
 
         boolean valInput = false;
 
         do {
-
-            System.out.print("Please enter the number of gallons in the tank: ");
+            System.out.print("Please enter the height of the rectangle: ");
             if (scanner.hasNextDouble()) {
-                gallons = scanner.nextDouble();
+                height = scanner.nextDouble();
                 valInput = true;
             } else {
-                System.out.println("Invalid input, please enter a valid number. ");
-                scanner.next();
-            }
-
-        }while (!valInput);
-
-        valInput = false;
-
-        do {
-            System.out.print("Please enter the fuel efficiency in miles per gallon: ");
-            if (scanner.hasNextDouble()) {
-                efficiency = scanner.nextDouble();
-                valInput = true;
-            }else {
-                System.out.println("Invalid input, please enter a valid number. ");
+                System.out.println("Invalid input. Please enter a valid number");
                 scanner.next();
             }
         }while (!valInput);
@@ -39,21 +23,26 @@ public class Main {
         valInput = false;
 
         do {
-            System.out.print("Please enter the price of gas per gallon: ");
+            System.out.print("Please enter the width of the rectangle: ");
             if (scanner.hasNextDouble()) {
-                pricePerGallon = scanner.nextDouble();
+                width = scanner.nextDouble();
                 valInput = true;
-            }else {
-                System.out.println("Invalid input, please enter a valid number. ");
+            } else {
+                System.out.println("Invalid input. Please enter a valid number");
                 scanner.next();
             }
         }while (!valInput);
 
-        double costPer100Miles = (100.0 / efficiency) * pricePerGallon;
-        double distanceWithGas = efficiency * gallons;
+        valInput = false;
 
-        System.out.println("Cost per 100 miles: $" + String.format("%.2f", costPer100Miles));
-        System.out.println("Distance the car can go with the gas in the tank: " + String.format("%.2f", distanceWithGas) + " miles");
+        double area = height * width;
+        System.out.println("Area of the rectangle is: " + area);
+
+        double perimeter = 2 * (height * width);
+        System.out.println("The perimeter of the rectangle is: " + perimeter);
+
+        double diagonalLength =  java.lang.Math.sqrt(width * width + height * height);
+        System.out.println("The length of the diagonal is: " + diagonalLength);
 
         scanner.close();
     }
